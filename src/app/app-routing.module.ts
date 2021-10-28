@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'heroes-details/:id', loadChildren: () => import('./components/pages/heroes/heroes-details/heroes-details.module').then(m => m.HeroesDetailsModule) }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

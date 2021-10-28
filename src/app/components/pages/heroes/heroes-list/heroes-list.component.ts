@@ -17,24 +17,18 @@ export class HeroesListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if( localStorage.getItem("estammosBucando") == "falso"){
-      console.log("entramos");
-      
-      console.log(localStorage.getItem("heroesBuscados"));      
-    }else {
-      console.log("salimos");
       
       this.heroesSvc.loadHeroes().subscribe(
       
         heroes=>{
-          for(let he=0; he <=20; he++ ){
+          for(let he=0; he <20; he++ ){
             const ramdom = Math.round(Math.random()*250);
             this.heroes.push(heroes[ramdom]);
   
           }
         }
       )
-    }
+    
    
     
     

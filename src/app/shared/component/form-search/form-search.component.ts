@@ -28,7 +28,7 @@ export class FormSearchComponent implements OnInit {
     
     if(value && value.length>3){
       this.heroesService.searchHeroes(value)
-      this.router.navigate(['/heroes-list'],{queryParams:{q:value}});
+      // this.router.navigate(['/heroes-list'],{queryParams:{q:value}});
     }
 
 
