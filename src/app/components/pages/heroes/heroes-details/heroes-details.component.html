@@ -1,0 +1,65 @@
+<div class="row justify-content-md-center" *ngIf="heroe$ | async as heroe" >
+     <div class="card mt-5 justify-content-center" style="width: 1000px;">
+                    <div class="row no-gutters">
+                        <div class="col-sm-5">
+                            <img 
+                            [src]="heroe.images.lg" 
+                            [alt]="heroe.name"
+                            class="card-img-top"
+                            />
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h2 style="text-align: center;" >{{heroe.name}}</h2>
+                              
+                                <small >Full Name: </small>
+                                <small class="text-muted">{{heroe.biography.fullName}}</small>
+                                <br>
+                                <small >Intelligence: </small>
+                                <small class="text-muted">{{heroe.powerstats.intelligence}}</small>
+                                <br>
+                                <small >Speed: </small>
+                                <small class="text-muted">{{heroe.powerstats.speed}}</small>
+                                <br>
+                                <small >Power: </small>
+                                <small class="text-muted">{{heroe.powerstats.power}}</small>
+                                <br>
+                                <small >Gender: </small>
+                                <small class="text-muted">{{heroe.appearance.gender}}</small>
+                                <br>
+                                <small >Race: </small>
+                                <small class="text-muted">{{heroe.appearance.race ? heroe.appearance.race : 'Heroe not Race' }}</small>
+                                <br>
+                                <br>
+                        
+                                <small >Occupation: </small>
+                                <small class="text-muted">{{heroe.work.occupation }}</small>
+                                <br>
+                                <small >Height: </small>
+                                <small class="text-muted">{{heroe.appearance.height }}</small>
+                                <br> 
+                                <small >width: </small>
+                                <small class="text-muted">{{heroe.appearance.weight }}</small>
+                                <br>    
+                                <small >Group Affiliation: </small>
+                                <small class="text-muted">{{heroe.connections.groupAffiliation }}</small>
+                                <br>
+                                <small >Group Affiliation: </small>
+                                <small class="text-muted">{{heroe.connections.groupAffiliation }}</small>
+                                <br>                               
+
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="card-inner">
+                <div class="header">
+                   
+                </div>
+            </div>
+
+
+</div>
+<button (click)="onGoBack()" class=" btn btn-dark btn-lg mt-3"> Back</button>
