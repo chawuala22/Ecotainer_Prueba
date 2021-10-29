@@ -1,5 +1,5 @@
 import { query } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroesService } from '@app/shared/services/heroes.service';
 
@@ -17,6 +17,7 @@ import { HeroesService } from '@app/shared/services/heroes.service';
   styles: ['input {width:100%}'],
 })
 export class FormSearchComponent implements OnInit {
+  @Input() pare: boolean = false;
 
   constructor(private router:Router, private heroesService:HeroesService) { }
 
@@ -28,9 +29,14 @@ export class FormSearchComponent implements OnInit {
     
     if(value && value.length>3){
       this.heroesService.searchHeroes(value)
-      // this.router.navigate(['/heroes-list'],{queryParams:{q:value}});
+      
+      this.router.navigate(['/search']);
+      setTimeout(() => {
+        window.location.reload()
+        this.pare = true;        
+      }, 100);
+      
     }
-
 
   }
 

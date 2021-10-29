@@ -36,7 +36,7 @@ export class HeroesService {
             heroesArr.push(heroe)
           }
         }
-        if(heroesArr.length == 0){
+        if(heroesArr.length === 0){
           localStorage.removeItem("heroesBuscados");
           localStorage.setItem("estammosBucando", "falso");
         }else{

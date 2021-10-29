@@ -1,0 +1,41 @@
+<div class="row">
+    
+    <div class="col-xs-12 col-sm-6 col-md-3" *ngFor= "let heroe of heroes">
+
+        <div class="card" routerLink="/heroes-details/{{heroe.id}}">
+            <div class="image">
+                
+                <img 
+                [src]="heroe.images.sm" 
+                [alt]="heroe.name"
+                class="card-img-top"
+                />
+            </div>
+            <div class="card-inner">
+                <div class="header">
+                    <h2 style="text-align: center;" >{{heroe.name ? heroe.name : 'Heroe without name' }}</h2>
+                    <small class="text-muted">Intelligence: </small>
+                    <small class="text-muted">{{heroe.powerstats.intelligence ? heroe.powerstats.intelligence : 'Hero without intelligence'}}</small>
+                    <br>
+                    <small class="text-muted">Speed: </small>
+                    <small class="text-muted">{{heroe.powerstats.speed ? heroe.powerstats.speed : 'Hero without speed' }}</small>
+                    <br>
+                    <small class="text-muted">Power: </small>
+                    <small class="text-muted">{{heroe.powerstats.power ? heroe.powerstats.power : 'Hero without power'}}</small>
+                    <br>
+                    <small class="text-muted">Gender: </small>
+                    <small class="text-muted">{{heroe.appearance.gender ? heroe.appearance.gender: 'Hero without gender'}}</small>
+                    <br>
+                    <small class="text-muted">Race: </small>
+                    <small class="text-muted">{{heroe.appearance.race ? heroe.appearance.race : 'Hero without Race'}}</small>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <h2 class="justify-content-md-center" *ngIf="notResult">No hay resultado</h2>
+
+    <button (click)="onGoBack()" class=" btn btn-dark btn-lg mt-3"> Back</button>

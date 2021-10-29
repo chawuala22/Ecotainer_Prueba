@@ -10,7 +10,6 @@ import {take} from "rxjs/operators";
 })
 export class HeroesListComponent implements OnInit {
   heroes: Heroes[]= [];
-  estamosBuscando: boolean = false;
 
 
   constructor(private heroesSvc: HeroesService) { }
@@ -21,10 +20,23 @@ export class HeroesListComponent implements OnInit {
       this.heroesSvc.loadHeroes().subscribe(
       
         heroes=>{
+          let cantidadNumeros = 20;
+          let myArray: number[] = []
+          while(myArray.length < cantidadNumeros ){
+            var numeroAleatorio = Math.ceil(Math.random()*250);
+            var existe = false;
+            for(var i=0;i<myArray.length;i++){
+            if(myArray [i] == numeroAleatorio){
+                  existe = true;
+                  break;
+              }
+            }
+            if(!existe){
+              myArray[myArray.length] = numeroAleatorio;
+            }
+          }
           for(let he=0; he <20; he++ ){
-            const ramdom = Math.round(Math.random()*250);
-            this.heroes.push(heroes[ramdom]);
-  
+            this.heroes.push(heroes[myArray[he]]);
           }
         }
       )
